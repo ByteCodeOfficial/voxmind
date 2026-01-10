@@ -357,6 +357,86 @@
         .glow-text {
             text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
         }
+        
+        .download-btn-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: var(--secondary);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .file-info {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        
+        .file-info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .file-info-item:last-child {
+            border-bottom: none;
+        }
+        
+        .install-steps {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .github-link {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .github-link:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+        
+        .download-options {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+        
+        .download-option-card {
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            height: 100%;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .download-option-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .qr-code-container {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
@@ -376,10 +456,10 @@
                         <a class="nav-link" href="#about">О приложении</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#screenshots">Скриншоты</a>
+                        <a class="nav-link" href="#features">Функции</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#roadmap">Дорожная карта</a>
+                        <a class="nav-link" href="#download">Скачать</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Контакты</a>
@@ -399,9 +479,9 @@
                     <h2 class="hero-subtitle">Голосовой дневник с искусственным интеллектом для анализа эмоций и мыслей</h2>
                     <p class="lead mb-4">Просто говорите о своём дне — ИИ создаст текст, проанализирует эмоции и даст персональные инсайты. Начните путь к самопознанию без единого набранного слова!</p>
                     <div class="d-flex flex-wrap gap-3">
-                        <button class="btn btn-gradient" onclick="scrollToDownload()">
+                        <a href="#download" class="btn btn-gradient">
                             <i class="bi bi-download me-2"></i>Скачать приложение
-                        </button>
+                        </a>
                         <a href="#about" class="btn btn-outline-light">Узнать больше</a>
                     </div>
                     <div class="row mt-5 pt-4">
@@ -456,8 +536,47 @@
     <!-- About Section -->
     <section id="about" class="py-5">
         <div class="container py-5">
-            <h2 class="section-title text-center">Почему VoxMind?</h2>
-            <p class="text-center text-muted mb-5">Революционный подход к ведению дневника с использованием искусственного интеллекта</p>
+            <h2 class="section-title text-center">О приложении</h2>
+            <p class="text-center text-muted mb-5">VoxMind — это революционный подход к ведению дневника с использованием искусственного интеллекта</p>
+            
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h3 class="mb-4">Что такое VoxMind?</h3>
+                    <p class="mb-4">VoxMind — это умный голосовой дневник, который использует искусственный интеллект для анализа ваших мыслей и эмоций. Просто говорите о своём дне естественно, а приложение автоматически преобразует речь в текст и проведет глубокий психологический анализ.</p>
+                    
+                    <h4 class="mb-3">Ключевые преимущества:</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Записывайте голосом — не нужно печатать</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>ИИ анализирует эмоции и настроение</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Получайте персональные инсайты</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Все данные хранятся локально на устройстве</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Работает онлайн и офлайн</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-robot"></i>
+                        </div>
+                        <h4>Технологии будущего</h4>
+                        <p class="text-muted">VoxMind использует передовые технологии искусственного интеллекта:</p>
+                        <ul class="text-muted">
+                            <li>Распознавание речи на русском языке</li>
+                            <li>Нейросетевой анализ эмоционального состояния</li>
+                            <li>Определение 2+ эмоций и 2+ тем</li>
+                            <li>Локальное машинное обучение</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5 bg-dark">
+        <div class="container py-5">
+            <h2 class="section-title text-center">Основные функции</h2>
+            <p class="text-center text-muted mb-5">Все что нужно для ведения современного дневника</p>
             
             <div class="row g-4">
                 <div class="col-md-4">
@@ -466,119 +585,180 @@
                             <i class="bi bi-mic-fill"></i>
                         </div>
                         <h4>Голосовая запись</h4>
-                        <p class="text-muted">Просто говорите — приложение запишет и распознает вашу речь. Не нужно ничего печатать!</p>
+                        <p class="text-muted">Записывайте свои мысли голосом в любое время. Автоматическое распознавание речи на русском языке.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="feature-card">
                         <div class="feature-icon">
-                            <i class="bi bi-robot"></i>
+                            <i class="bi bi-heart-fill"></i>
                         </div>
-                        <h4>ИИ анализ эмоций</h4>
-                        <p class="text-muted">Искусственный интеллект анализирует ваши эмоции, определяет настроение и выявляет ключевые темы.</p>
+                        <h4>Анализ эмоций</h4>
+                        <p class="text-muted">ИИ определяет ваши эмоции (радость, грусть, тревога, мотивация) и дает обратную связь.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="feature-card">
                         <div class="feature-icon">
-                            <i class="bi bi-graph-up"></i>
+                            <i class="bi bi-bar-chart-fill"></i>
                         </div>
-                        <h4>Персональные инсайты</h4>
-                        <p class="text-muted">Получайте глубокие аналитические отчеты и рекомендации для самопознания и личностного роста.</p>
+                        <h4>Аналитика</h4>
+                        <p class="text-muted">Еженедельные отчеты о вашем эмоциональном состоянии, графики настроения и тренды.</p>
                     </div>
                 </div>
-            </div>
-            
-            <div class="row mt-5 pt-5 align-items-center">
-                <div class="col-lg-6">
-                    <h3 class="mb-4">Как это работает?</h3>
-                    <div class="accordion" id="howItWorks">
-                        <div class="accordion-item bg-transparent border-light">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#step1">
-                                    <i class="bi bi-mic me-3"></i>1. Запись голоса
-                                </button>
-                            </h2>
-                            <div id="step1" class="accordion-collapse collapse show" data-bs-parent="#howItWorks">
-                                <div class="accordion-body text-muted">
-                                    Говорите естественно о своём дне, проблемах, радостях или мечтах. 2-3 минуты достаточно для полноценного анализа.
-                                </div>
-                            </div>
+                
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-shield-lock-fill"></i>
                         </div>
-                        <div class="accordion-item bg-transparent border-light">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#step2">
-                                    <i class="bi bi-robot me-3"></i>2. Преобразование и анализ
-                                </button>
-                            </h2>
-                            <div id="step2" class="accordion-collapse collapse" data-bs-parent="#howItWorks">
-                                <div class="accordion-body text-muted">
-                                    ИИ превращает речь в текст и проводит глубокий психологический анализ, определяя эмоции, темы и тональность.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item bg-transparent border-light">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed bg-transparent text-light" type="button" data-bs-toggle="collapse" data-bs-target="#step3">
-                                    <i class="bi bi-lightbulb me-3"></i>3. Получение инсайтов
-                                </button>
-                            </h2>
-                            <div id="step3" class="accordion-collapse collapse" data-bs-parent="#howItWorks">
-                                <div class="accordion-body text-muted">
-                                    Получайте готовый текст + глубокий анализ + персонализированные рекомендации для самопознания.
-                                </div>
-                            </div>
-                        </div>
+                        <h4>Конфиденциальность</h4>
+                        <p class="text-muted">Все данные хранятся локально на устройстве. Ваши мысли остаются только с вами.</p>
                     </div>
                 </div>
-                <div class="col-lg-6 mt-4 mt-lg-0">
-                    <div class="bg-dark p-4 rounded-3 border border-light">
-                        <h4 class="mb-3">Технологии будущего уже сегодня:</h4>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Распознавание речи на русском языке</li>
-                            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Нейросетевой анализ эмоционального состояния</li>
-                            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Определение 8+ эмоций и 10+ тем</li>
-                            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Локальное хранение данных для конфиденциальности</li>
-                            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Работа онлайн и офлайн</li>
-                            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Еженедельные аналитические отчеты</li>
-                        </ul>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-calendar-heart-fill"></i>
+                        </div>
+                        <h4>История записей</h4>
+                        <p class="text-muted">Удобный календарь для просмотра записей по дням и поиска по ключевым словам.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-lightbulb-fill"></i>
+                        </div>
+                        <h4>Инсайты</h4>
+                        <p class="text-muted">Персональные рекомендации и инсайты для самопознания и личностного роста.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Screenshots Section -->
-    <section id="screenshots" class="py-5 bg-dark">
+    <!-- Download Section -->
+    <section id="download" class="py-5">
         <div class="container py-5">
-            <h2 class="section-title text-center">Скриншоты приложения</h2>
-            <p class="text-center text-muted mb-5">Современный интерфейс и интуитивная навигация</p>
+            <h2 class="section-title text-center">Скачать VoxMind</h2>
+            <p class="text-center text-muted mb-5">Выберите удобный способ получения приложения</p>
             
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="screenshot-card">
-                        <img src="Снимок экрана 2026-01-07 в 19.19.58.png" alt="Главный экран" class="screenshot-img">
-                        <div class="p-3">
-                            <h5 class="mb-2">Главный экран</h5>
-                            <p class="text-muted small">Быстрый доступ к записи и последним записям</p>
+            <!-- Основная кнопка загрузки -->
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8">
+                    <div class="card bg-darker border-light">
+                        <div class="card-body p-4 text-center">
+                            <div class="feature-icon mx-auto mb-3">
+                                <i class="bi bi-android"></i>
+                            </div>
+                            <h3 class="mb-3">Скачать APK файл</h3>
+                            <p class="text-muted mb-4">Прямая ссылка для скачивания приложения на Android устройства</p>
+                            
+                            <div class="download-btn-container mb-3">
+                                <a id="directDownloadBtn" href="https://github.com/yourusername/VoxMind/releases/download/v1.0.0/VoxMind-v1.0.0.apk" 
+                                   class="btn btn-gradient btn-lg px-5 py-3" download="VoxMind-v1.0.0.apk">
+                                    <i class="bi bi-download me-2"></i>Скачать VoxMind APK (v1.0.0)
+                                </a>
+                                <div id="downloadProgress" class="download-progress"></div>
+                            </div>
+                            
+                            <div class="file-info mb-4">
+                                <div class="file-info-item">
+                                    <span>Размер файла:</span>
+                                    <span class="text-primary">~7 MB</span>
+                                </div>
+                                <div class="file-info-item">
+                                    <span>Версия:</span>
+                                    <span>1.0.0</span>
+                                </div>
+                                <div class="file-info-item">
+                                    <span>Android:</span>
+                                    <span>8.0+ (Oreo и выше)</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="screenshot-card">
-                        <img src="Снимок экрана 2026-01-07 в 19.19.58.png" alt="Запись голоса" class="screenshot-img">
-                        <div class="p-3">
-                            <h5 class="mb-2">Запись голоса</h5>
-                            <p class="text-muted small">Интерфейс голосовой записи с визуализацией</p>
+            </div>
+            
+            <!-- Альтернативные варианты загрузки -->
+            <div class="download-options">
+                <h4 class="text-center mb-4">Другие способы получения приложения</h4>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="download-option-card text-center">
+                            <div class="feature-icon mx-auto mb-3" style="width: 60px; height: 60px;">
+                                <i class="bi bi-github"></i>
+                            </div>
+                            <h5>GitHub Releases</h5>
+                            <p class="text-muted small mb-3">Скачайте последнюю версию из официального репозитория</p>
+                            <a href="https://github.com/yourusername/VoxMind/releases" class="btn btn-outline-primary btn-sm" target="_blank">
+                                Перейти на GitHub
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="download-option-card text-center">
+                            <div class="feature-icon mx-auto mb-3" style="width: 60px; height: 60px;">
+                                <i class="bi bi-phone"></i>
+                            </div>
+                            <h5>QR-код для скачивания</h5>
+                            <p class="text-muted small mb-3">Отсканируйте QR-код на мобильном устройстве</p>
+                            <div class="qr-code-container">
+                                <!-- Замените ссылку на вашу -->
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/ByteCode/VoxMind/VoxMind-v1.0.0.apk" 
+                                     alt="QR Code" width="120" height="120">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="download-option-card text-center">
+                            <div class="feature-icon mx-auto mb-3" style="width: 60px; height: 60px;">
+                                <i class="bi bi-code-slash"></i>
+                            </div>
+                            <h5>Исходный код</h5>
+                            <p class="text-muted small mb-3">Соберите приложение самостоятельно из исходного кода</p>
+                            <a href="https://github.com/ByteCodeOfficial/VoxMind" class="btn btn-outline-primary btn-sm" target="_blank">
+                                Исходный код
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="screenshot-card">
-                        <img src="Screenshot_20260110_220518.png" alt="Анализ эмоций" class="screenshot-img">
-                        <div class="p-3">
-                            <h5 class="mb-2">Анализ эмоций</h5>
-                            <p class="text-muted small">Детальный анализ настроения и эмоций</p>
+            </div>
+            
+            <!-- Инструкция по установке -->
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto">
+                    <div class="install-steps">
+                        <h4 class="mb-4"><i class="bi bi-info-circle me-2"></i>Инструкция по установке</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Для пользователей:</h5>
+                                <ol class="text-muted">
+                                    <li class="mb-2">Нажмите кнопку "Скачать VoxMind APK" выше</li>
+                                    <li class="mb-2">Разрешите установку из неизвестных источников в настройках Android</li>
+                                    <li class="mb-2">Откройте скачанный файл и нажмите "Установить"</li>
+                                    <li>Запустите VoxMind и начните использовать!</li>
+                                </ol>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Для разработчиков:</h5>
+                                <ol class="text-muted">
+                                    <li class="mb-2">Клонируйте репозиторий с GitHub</li>
+                                    <li class="mb-2">Откройте проект в Android Studio</li>
+                                    <li class="mb-2">Соберите APK через Build → Build Bundle(s) / APK(s)</li>
+                                    <li>Установите на устройство и протестируйте</li>
+                                </ol>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-warning mt-4">
+                            <i class="bi bi-exclamation-triangle me-2"></i>
+                            <strong>Важно:</strong> При первой установке Android может предупредить об установке из неизвестных источников. 
+                            Это нормально, так как приложение пока не опубликовано в Google Play.
                         </div>
                     </div>
                 </div>
@@ -586,109 +766,70 @@
         </div>
     </section>
 
-    <!-- Roadmap Section -->
-    <section id="roadmap" class="py-5">
-        <div class="container py-5">
-            <h2 class="section-title text-center">Дорожная карта развития</h2>
-            <p class="text-center text-muted mb-5">Планы развития VoxMind на 2026-2027 годы</p>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="badge bg-primary mb-2">Этап 1</div>
-                        <h4>Текущая версия 1.0</h4>
-                        <p class="text-muted">Базовое распознавание речи, текстовый ввод, локальный анализ эмоций, простое хранение записей.</p>
-                        <div class="d-flex">
-                            <span class="badge bg-success me-2"><i class="bi bi-check-circle"></i> Готово</span>
-                            <span class="badge bg-light text-dark">Q1 2026</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="badge bg-primary mb-2">Этап 2</div>
-                        <h4>Автоматическое создание текста</h4>
-                        <p class="text-muted">ИИ сам создает структурированный текст из голосовых записей, улучшенный календарь, расширенный профиль пользователя.</p>
-                        <div class="d-flex">
-                            <span class="badge bg-warning me-2"><i class="bi bi-clock"></i> В разработке</span>
-                            <span class="badge bg-light text-dark">Q2 2026</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="badge bg-primary mb-2">Этап 3</div>
-                        <h4>Продвинутый ИИ анализ</h4>
-                        <p class="text-muted">Контекстуальное понимание речи, автоматические теги и категории, персонализированные вопросы для рефлексии.</p>
-                        <div class="d-flex">
-                            <span class="badge bg-secondary me-2"><i class="bi bi-calendar"></i> Запланировано</span>
-                            <span class="badge bg-light text-dark">Q3 2026</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="badge bg-primary mb-2">Этап 4</div>
-                        <h4>Мультимодальный ИИ</h4>
-                        <p class="text-muted">Анализ тембра голоса и интонации, прогностическая аналитика, терапевтические модули, сообщество поддержки.</p>
-                        <div class="d-flex">
-                            <span class="badge bg-secondary me-2"><i class="bi bi-calendar"></i> Запланировано</span>
-                            <span class="badge bg-light text-dark">2027</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact & Download Section -->
+    <!-- Contact Section -->
     <section id="contact" class="py-5 bg-dark">
         <div class="container py-5">
-            <div class="row align-items-center">
+            <h2 class="section-title text-center">Контакты</h2>
+            <p class="text-center text-muted mb-5">Свяжитесь с нами для сотрудничества или получения помощи</p>
+            
+            <div class="row">
                 <div class="col-lg-6">
-                    <h2 class="mb-4">Скачать приложение</h2>
-                    <p class="mb-4">VoxMind доступен для Android устройств. Нажмите кнопку ниже, чтобы скачать APK файл.</p>
-                    
-                    <div class="d-flex flex-wrap gap-3 mb-5">
-                        <button class="btn btn-gradient btn-lg" onclick="downloadApp()">
-                            <i class="bi bi-android me-2"></i>Скачать для Android
-                        </button>
-                        <button class="btn btn-outline-light btn-lg" disabled>
-                            <i class="bi bi-apple me-2"></i>Скоро для iOS
-                        </button>
-                    </div>
-                    
-                    <div class="alert alert-info">
-                        <i class="bi bi-info-circle me-2"></i>
-                        <strong>Внимание:</strong> Для установки потребуется разрешить "Установку из неизвестных источников" в настройках вашего устройства.
+                    <div class="card bg-darker border-light h-100">
+                        <div class="card-body p-4">
+                            <h4 class="mb-4">Автор проекта</h4>
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="rounded-circle bg-primary p-3 me-3">
+                                    <i class="bi bi-person-fill" style="font-size: 2rem;"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-0">Артём Коннов</h5>
+                                    <p class="text-muted mb-0">Разработчик и создатель VoxMind</p>
+                                </div>
+                            </div>
+                            
+                            <h5 class="mb-3">Организация</h5>
+                            <p class="text-muted mb-4">
+                                <strong>ByteCode</strong> — команда разработчиков, специализирующаяся на создании инновационных мобильных приложений 
+                                с использованием искусственного интеллекта и современных технологий.
+                            </p>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="col-lg-6">
-                    <div class="bg-darker p-4 rounded-3">
-                        <h4 class="mb-4">Контакты и поддержка</h4>
-                        <div class="mb-4">
-                            <h5>Автор</h5>
-                            <p class="mb-1">Артём Коннов</p>
-                            <p class="text-muted">Разработчик и создатель VoxMind</p>
-                        </div>
-                        
-                        <div class="mb-4">
-                            <h5>Организация</h5>
-                            <p class="mb-1">ByteCode</p>
-                            <p class="text-muted">Специализируется на создании инновационных мобильных приложений с использованием искусственного интеллекта</p>
-                        </div>
-                        
-                        <div>
-                            <h5 class="mb-3">Связаться с нами</h5>
-                            <div class="d-flex">
+                <div class="col-lg-6 mt-4 mt-lg-0">
+                    <div class="card bg-darker border-light h-100">
+                        <div class="card-body p-4">
+                            <h4 class="mb-4">Связаться с нами</h4>
+                            
+                            <div class="mb-4">
+                                <h5><i class="bi bi-telegram text-primary me-2"></i>Telegram</h5>
+                                <p class="text-muted">Основной канал для связи и поддержки</p>
+                                <a href="https://t.me/bytecode_official" class="github-link" target="_blank">
+                                    @bytecode_official
+                                </a>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h5><i class="bi bi-envelope text-primary me-2"></i>Email</h5>
+                                <p class="text-muted">Для деловых предложений и сотрудничества</p>
+                                <a href="mailto:support@voxmind.app" class="github-link">
+                                    support@voxmind.app
+                                </a>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h5><i class="bi bi-github text-primary me-2"></i>GitHub</h5>
+                                <p class="text-muted">Исходный код и документация проекта</p>
+                                <a href="https://github.com/yourusername/VoxMind" class="github-link" target="_blank">
+                                    github.com/yourusername/VoxMind
+                                </a>
+                            </div>
+                            
+                            <div class="d-flex mt-4">
                                 <a href="https://t.me/bytecode_official" class="social-icon" target="_blank">
                                     <i class="bi bi-telegram"></i>
                                 </a>
-                                <a href="https://github.com" class="social-icon" target="_blank">
+                                <a href="https://github.com/yourusername/VoxMind" class="social-icon" target="_blank">
                                     <i class="bi bi-github"></i>
                                 </a>
                                 <a href="mailto:support@voxmind.app" class="social-icon">
@@ -705,15 +846,14 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="row">
+            <div class="row align-items-center">
                 <div class="col-md-6">
                     <h3 class="mb-3">VoxMind</h3>
-                    <p class="text-muted">Голосовой дневник с искусственным интеллектом для анализа эмоций и самопознания.</p>
+                    <p class="text-muted mb-0">Голосовой дневник с искусственным интеллектом для анализа эмоций и самопознания.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <p class="copyright">© 2026 ByteCode. Все права защищены.</p>
-                    <p class="copyright">Разработано Артёмом Конновым</p>
-                    <p class="copyright mt-2">VoxMind v1.0.0</p>
+                    <p class="copyright mb-2">© 2026 ByteCode. Все права защищены.</p>
+                    <p class="copyright">Разработано Артёмом Конновым • VoxMind v1.0.0</p>
                 </div>
             </div>
         </div>
@@ -737,10 +877,73 @@
             setTimeout(animateVoiceBars, 300);
         }
         
-        // Инициализация анимации голосовых полосок
+        // Создание частиц для фона
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = Math.random() * 5 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.background = 'rgba(99, 102, 241, 0.5)';
+                particle.style.borderRadius = '50%';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                
+                particle.animate([
+                    { transform: 'translate(0, 0)' },
+                    { transform: `translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px)` }
+                ], {
+                    duration: Math.random() * 5000 + 5000,
+                    direction: 'alternate',
+                    iterations: Infinity
+                });
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Анимация прогресса загрузки
+        function startDownloadAnimation() {
+            const downloadBtn = document.getElementById('directDownloadBtn');
+            const progressBar = document.getElementById('downloadProgress');
+            
+            // Сохраняем оригинальный текст кнопки
+            const originalText = downloadBtn.innerHTML;
+            
+            // Анимация перед началом скачивания
+            downloadBtn.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Подготовка скачивания...';
+            progressBar.style.width = '30%';
+            
+            // Имитация загрузки
+            setTimeout(() => {
+                progressBar.style.width = '60%';
+                downloadBtn.innerHTML = '<i class="bi bi-download me-2"></i>Начинаем скачивание...';
+                
+                setTimeout(() => {
+                    progressBar.style.width = '100%';
+                    downloadBtn.innerHTML = '<i class="bi bi-check-circle me-2"></i>Скачивание началось!';
+                    
+                    // Через 2 секунды возвращаем оригинальный вид
+                    setTimeout(() => {
+                        progressBar.style.width = '0%';
+                        downloadBtn.innerHTML = originalText;
+                    }, 2000);
+                }, 500);
+            }, 500);
+            
+            // Настоящее скачивание начнется автоматически через ссылку
+        }
+        
+        // Инициализация при загрузке страницы
         document.addEventListener('DOMContentLoaded', function() {
             // Запуск анимации голосовых полосок
             setTimeout(animateVoiceBars, 1000);
+            
+            // Создание частиц
+            createParticles();
             
             // Плавная прокрутка для навигационных ссылок
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -760,9 +963,6 @@
                 });
             });
             
-            // Создание частиц для фона
-            createParticles();
-            
             // Анимация навигации при скролле
             window.addEventListener('scroll', function() {
                 const navbar = document.querySelector('.navbar');
@@ -774,54 +974,78 @@
                     navbar.style.backgroundColor = 'rgba(15, 23, 42, 0.95)';
                 }
             });
+            
+            // Обработка клика на кнопку скачивания
+            const downloadBtn = document.getElementById('directDownloadBtn');
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', startDownloadAnimation);
+            }
+            
+            // Инструкция по настройке ссылок
+            console.log(`
+            ============================================
+            ИНСТРУКЦИЯ ПО НАСТРОЙКЕ ССЫЛОК:
+            
+            1. ЗАМЕНИТЕ ССЫЛКИ НА ВАШИ:
+            
+               А) Основная ссылка для скачивания (строка 279):
+                  Было: https://github.com/yourusername/VoxMind/releases/download/v1.0.0/VoxMind-v1.0.0.apk
+                  Стало: https://github.com/ВАШ_ЮЗЕРНЕЙМ/VoxMind/releases/download/ВАША_ВЕРСИЯ/ВАШ_APK.apk
+            
+               Б) Ссылка на релизы GitHub (строка 330):
+                  Было: https://github.com/yourusername/VoxMind/releases
+                  Стало: https://github.com/ВАШ_ЮЗЕРНЕЙМ/VoxMind/releases
+            
+               В) Ссылка на репозиторий (строка 376 и 580):
+                  Было: https://github.com/yourusername/VoxMind
+                  Стало: https://github.com/ВАШ_ЮЗЕРНЕЙМ/VoxMind
+            
+               Г) Ссылка в QR-коде (строка 351):
+                  Обновите URL в src изображения
+            
+            2. ПРОВЕРЬТЕ, ЧТО APK ФАЙЛ РАЗМЕЩЕН В RELEASES:
+               - Зайдите на GitHub → Ваш репозиторий
+               - Нажмите "Create a new release"
+               - Загрузите ваш APK файл
+               - Скопируйте прямую ссылку на файл
+            
+            3. СОХРАНИТЕ ФАЙЛ И ЗАГРУЗИТЕ НА ХОСТИНГ
+            ============================================
+            `);
         });
         
-        // Функция для создания частиц
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.style.position = 'absolute';
-                particle.style.width = Math.random() * 5 + 2 + 'px';
-                particle.style.height = particle.style.width;
-                particle.style.background = 'rgba(99, 102, 241, 0.5)';
-                particle.style.borderRadius = '50%';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                
-                // Анимация движения частиц
-                particle.animate([
-                    { transform: 'translate(0, 0)' },
-                    { transform: `translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px)` }
-                ], {
-                    duration: Math.random() * 5000 + 5000,
-                    direction: 'alternate',
-                    iterations: Infinity
-                });
-                
-                particlesContainer.appendChild(particle);
+        // Функция для обновления ссылок
+        function updateGitHubLinks(username, repoName, version, apkFileName) {
+            // Обновляем основные ссылки
+            const directDownloadBtn = document.getElementById('directDownloadBtn');
+            if (directDownloadBtn) {
+                directDownloadBtn.href = `https://github.com/${username}/${repoName}/releases/download/${version}/${apkFileName}`;
+                directDownloadBtn.download = apkFileName;
             }
-        }
-        
-        // Функция для прокрутки к разделу загрузки
-        function scrollToDownload() {
-            document.getElementById('contact').scrollIntoView({ 
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-        
-        // Функция для имитации загрузки приложения
-        function downloadApp() {
-            // В реальном проекте здесь была бы ссылка на APK файл
-            // Для демонстрации просто покажем уведомление
-            alert('Скачивание начнется автоматически.');
             
-            // Здесь можно добавить реальную ссылку для скачивания:
-            window.location.href = 'https://github.com/ByteCodeOfficial/voxmind/blob/main/voxmind%20beta%201.0.apk';
+            // Обновляем текст кнопки
+            if (directDownloadBtn) {
+                directDownloadBtn.innerHTML = `<i class="bi bi-download me-2"></i>Скачать VoxMind APK (${version})`;
+            }
+            
+            // Обновляем другие ссылки
+            document.querySelectorAll('a[href*="github.com/yourusername"]').forEach(link => {
+                const oldHref = link.href;
+                const newHref = oldHref.replace('yourusername', username).replace('VoxMind', repoName);
+                link.href = newHref;
+            });
+            
+            // Обновляем QR код
+            const qrCodeImg = document.querySelector('img[alt="QR Code"]');
+            if (qrCodeImg) {
+                qrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/${username}/${repoName}/releases/download/${version}/${apkFileName}`;
+            }
+            
+            console.log('Ссылки успешно обновлены!');
         }
+        
+        // Пример использования:
+        // updateGitHubLinks('artem-konnov', 'VoxMind', 'v1.0.0', 'VoxMind-v1.0.0.apk');
     </script>
 </body>
 </html>
