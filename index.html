@@ -693,7 +693,7 @@
                             </div>
                             <h5>GitHub Releases</h5>
                             <p class="text-muted small mb-3">Скачайте последнюю версию из официального репозитория</p>
-                            <a href="https://github.com/yourusername/VoxMind/releases" class="btn btn-outline-primary btn-sm" target="_blank">
+                            <a href="https://github.com/yourbytecodeofficial/VoxMind/releases" class="btn btn-outline-primary btn-sm" target="_blank">
                                 Перейти на GitHub
                             </a>
                         </div>
@@ -708,7 +708,7 @@
                             <p class="text-muted small mb-3">Отсканируйте QR-код на мобильном устройстве</p>
                             <div class="qr-code-container">
                                 <!-- Замените ссылку на вашу -->
-                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/ByteCode/VoxMind/VoxMind-v1.0.0.apk" 
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/ByteCodeOfficial/voxmind/releases/download/voxmind/voxmind.beta.1.0.apk" 
                                      alt="QR Code" width="120" height="120">
                             </div>
                         </div>
@@ -787,10 +787,9 @@
                                 </div>
                             </div>
                             
-                            <h5 class="mb-3">Организация</h5>
+                            <h5 class="mb-3">Канал</h5>
                             <p class="text-muted mb-4">
-                                <strong>ByteCode</strong> — команда разработчиков, специализирующаяся на создании инновационных мобильных приложений 
-                                с использованием искусственного интеллекта и современных технологий.
+                                <strong>ByteCode</strong>
                             </p>
                         </div>
                     </div>
@@ -812,16 +811,16 @@
                             <div class="mb-4">
                                 <h5><i class="bi bi-envelope text-primary me-2"></i>Email</h5>
                                 <p class="text-muted">Для деловых предложений и сотрудничества</p>
-                                <a href="mailto:support@voxmind.app" class="github-link">
-                                    support@voxmind.app
+                                <a href="mailto:connovtema@yandex.ru" class="github-link">
+                                    connovtema@yandex.ru
                                 </a>
                             </div>
                             
                             <div class="mb-4">
                                 <h5><i class="bi bi-github text-primary me-2"></i>GitHub</h5>
                                 <p class="text-muted">Исходный код и документация проекта</p>
-                                <a href="https://github.com/yourusername/VoxMind" class="github-link" target="_blank">
-                                    github.com/yourusername/VoxMind
+                                <a href="https://github.com/bytecodeofficial/VoxMind" class="github-link" target="_blank">
+                                    github.com/bytecodeofficial/VoxMind
                                 </a>
                             </div>
                             
@@ -829,10 +828,10 @@
                                 <a href="https://t.me/bytecode_official" class="social-icon" target="_blank">
                                     <i class="bi bi-telegram"></i>
                                 </a>
-                                <a href="https://github.com/yourusername/VoxMind" class="social-icon" target="_blank">
+                                <a href="https://github.com/bytecodeofficial/VoxMind" class="social-icon" target="_blank">
                                     <i class="bi bi-github"></i>
                                 </a>
-                                <a href="mailto:support@voxmind.app" class="social-icon">
+                                <a href="mailto:connovtema@yandex.ru" class="social-icon">
                                     <i class="bi bi-envelope"></i>
                                 </a>
                             </div>
@@ -989,15 +988,15 @@
             1. ЗАМЕНИТЕ ССЫЛКИ НА ВАШИ:
             
                А) Основная ссылка для скачивания (строка 279):
-                  Было: https://github.com/yourusername/VoxMind/releases/download/v1.0.0/VoxMind-v1.0.0.apk
+                  Было: https://github.com/yourbytecodeofficial/VoxMind/releases/download/v1.0.0/VoxMind-v1.0.0.apk
                   Стало: https://github.com/ВАШ_ЮЗЕРНЕЙМ/VoxMind/releases/download/ВАША_ВЕРСИЯ/ВАШ_APK.apk
             
                Б) Ссылка на релизы GitHub (строка 330):
-                  Было: https://github.com/yourusername/VoxMind/releases
+                  Было: https://github.com/yourbytecodeofficial/VoxMind/releases
                   Стало: https://github.com/ВАШ_ЮЗЕРНЕЙМ/VoxMind/releases
             
                В) Ссылка на репозиторий (строка 376 и 580):
-                  Было: https://github.com/yourusername/VoxMind
+                  Было: https://github.com/yourbytecodeofficial/VoxMind
                   Стало: https://github.com/ВАШ_ЮЗЕРНЕЙМ/VoxMind
             
                Г) Ссылка в QR-коде (строка 351):
@@ -1015,11 +1014,11 @@
         });
         
         // Функция для обновления ссылок
-        function updateGitHubLinks(username, repoName, version, apkFileName) {
+        function updateGitHubLinks(bytecodeofficial, repoName, version, apkFileName) {
             // Обновляем основные ссылки
             const directDownloadBtn = document.getElementById('directDownloadBtn');
             if (directDownloadBtn) {
-                directDownloadBtn.href = `https://github.com/${username}/${repoName}/releases/download/${version}/${apkFileName}`;
+                directDownloadBtn.href = `https://github.com/${bytecodeofficial}/${repoName}/releases/download/${version}/${apkFileName}`;
                 directDownloadBtn.download = apkFileName;
             }
             
@@ -1029,16 +1028,16 @@
             }
             
             // Обновляем другие ссылки
-            document.querySelectorAll('a[href*="github.com/yourusername"]').forEach(link => {
+            document.querySelectorAll('a[href*="github.com/yourbytecodeofficial"]').forEach(link => {
                 const oldHref = link.href;
-                const newHref = oldHref.replace('yourusername', username).replace('VoxMind', repoName);
+                const newHref = oldHref.replace('yourbytecodeofficial', bytecodeofficial).replace('VoxMind', repoName);
                 link.href = newHref;
             });
             
             // Обновляем QR код
             const qrCodeImg = document.querySelector('img[alt="QR Code"]');
             if (qrCodeImg) {
-                qrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/${username}/${repoName}/releases/download/${version}/${apkFileName}`;
+                qrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/${bytecodeofficial}/${repoName}/releases/download/${version}/${apkFileName}`;
             }
             
             console.log('Ссылки успешно обновлены!');
